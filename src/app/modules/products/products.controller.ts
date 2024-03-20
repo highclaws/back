@@ -152,6 +152,7 @@ export class ProductsController {
     @Param('id', new ParseUUIDPipe()) id: string,
     @Body() updateProductDto: UpdateProductDto,
   ): Promise<ProductResponseDto> {
+    this.logger.verbose(`updating an product. Data: ${JSON.stringify(id)}`);
     return this.ProductsService.updateProduct(id, updateProductDto);
   }
 }
